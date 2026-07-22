@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAILY PLANET - Welcome</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(180deg, #0a1428, #1a2a4a);
+            color: #00ffcc;
+            font-family: 'Press Start 2P', system-ui;
+            height: 100vh;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            image-rendering: pixelated;
+        }
+
+        .crt {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            background: repeating-linear-gradient(
+                transparent 0px,
+                transparent 2px,
+                rgba(0, 255, 200, 0.07) 2px,
+                rgba(0, 255, 200, 0.07) 4px
+            );
+            pointer-events: none;
+            z-index: 2;
+            animation: scanline 7s linear infinite;
+        }
+
+        @keyframes scanline {
+            0% { transform: translateY(-100%); }
+            100% { transform: translateY(100%); }
+        }
+
+        .container {
+            max-width: 960px;
+            padding: 40px 30px;
+            text-align: center;
+            z-index: 3;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 3.9rem;
+            line-height: 1.05;
+            text-shadow: 
+                0 0 15px #00ffcc,
+                0 0 35px #00ffcc,
+                0 0 70px #ffff00,
+                5px 5px 0 #ffff00;
+            margin-bottom: 12px;
+            animation: glow 1.3s ease-in-out infinite alternate;
+            letter-spacing: 4px;
+        }
+
+        .subtitle {
+            font-size: 1.5rem;
+            color: #ffff66;
+            text-shadow: 0 0 25px #ffff00;
+            margin-bottom: 55px;
+            letter-spacing: 8px;
+        }
+
+        #welcomeBtn {
+            background: linear-gradient(45deg, #ffff00, #ffcc00);
+            color: #001122;
+            border: 6px solid #00ffcc;
+            padding: 30px 75px;
+            font-size: 2.05rem;
+            font-family: 'Press Start 2P';
+            cursor: pointer;
+            transition: all 0.4s;
+            box-shadow: 
+                0 0 45px #ffff00,
+                0 0 70px #00ffcc;
+            text-transform: uppercase;
+            letter-spacing: 6px;
+            margin-bottom: 50px;
+        }
+
+        #welcomeBtn:hover {
+            transform: scale(1.13) rotate(4deg);
+            box-shadow: 0 0 80px #ffff00;
+        }
+
+        .message-container {
+            min-height: 380px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-bottom: 60px;
+        }
+
+        .message {
+            font-size: 1.85rem;
+            line-height: 1.75;
+            max-width: 860px;
+            width: 100%;
+            padding: 50px 55px;
+            border: 5px solid #00ffcc;
+            background: rgba(5, 25, 55, 0.94);
+            text-shadow: 0 0 22px #00ffcc;
+            box-shadow: 0 0 60px rgba(0, 255, 204, 0.7);
+            opacity: 0;
+            transition: all 0.95s ease;
+            position: relative;
+        }
+
+        .message.show {
+            opacity: 1;
+        }
+
+        .message::before {
+            content: '◉';
+            position: absolute;
+            top: -22px;
+            left: 45px;
+            color: #ffff00;
+            font-size: 1.5rem;
+        }
+
+        .footer {
+            position: absolute;
+            bottom: 35px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 1.05rem;
+            color: #00ffcc;
+            opacity: 0.85;
+            text-shadow: 0 0 12px #00ffcc;
+            z-index: 4;
+        }
+
+        @keyframes glow {
+            from { text-shadow: 0 0 15px #00ffcc, 0 0 35px #00ffcc; }
+            to { text-shadow: 0 0 25px #00ffcc, 0 0 60px #ffff00, 0 0 85px #ffff00; }
+        }
+
+        .neon-border {
+            position: absolute;
+            top: -25px;
+            left: -25px;
+            right: -25px;
+            bottom: -25px;
+            border: 3px solid transparent;
+            background: linear-gradient(45deg, #00ffcc, #ffff00) border-box;
+            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            animation: neon-border 2.8s linear infinite;
+            z-index: -1;
+            opacity: 0.65;
+        }
+/* ===================== MOBILE - CORRIGIDO ===================== */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3.1rem;
+            }
+            
+            .subtitle {
+                font-size: 1.35rem;
+                margin-bottom: 45px;
+            }
+            
+            #welcomeBtn {
+                padding: 25px 60px;
+                font-size: 1.85rem;
+            }
+            
+            .message-container {
+                min-height: 340px;
+                margin-bottom: 90px; /* mais espaço pro footer */
+            }
+            
+            .message {
+                font-size: 1.6rem;
+                padding: 40px 35px;
+                max-width: 88%;           /* não ocupa toda a tela */
+                margin: 0 auto;
+                line-height: 1.7;
+            }
+            
+            .container {
+                padding: 30px 25px;
+            }
+            
+            .footer {
+                font-size: 1rem;
+                bottom: 28px;
+                white-space: nowrap;      /* força ficar em linha reta */
+                overflow: hidden;
+                text-overflow: ellipsis;
+                max-width: 95%;
+                z-index: 10;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2.7rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            #welcomeBtn {
+                padding: 22px 52px;
+                font-size: 1.7rem;
+            }
+            
+            .message {
+                font-size: 1.45rem;
+                padding: 35px 30px;
+                max-width: 90%;
+            }
+            
+            .message-container {
+                min-height: 310px;
+                margin-bottom: 80px;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .message {
+                max-width: 92%;
+                padding: 32px 25px;
+            }
+        }
+
+        /* Landscape */
+        @media (max-height: 620px) and (orientation: landscape) {
+            .message-container {
+                min-height: 230px;
+                margin-bottom: 60px;
+            }
+            .footer {
+                bottom: 15px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="crt"></div>
+
+    <div class="container">
+        <div class="neon-border"></div>
+        
+        <h1>DAILY PLANET</h1>
+        <p class="subtitle">METROPOLIS • EST. 1938</p>
+        
+        <button id="welcomeBtn">WELCOME, NEW MEMBER!</button>
+        
+        <div class="message-container" id="messages">
+            <div class="message" id="currentMessage"></div>
+        </div>
+        
+        <div class="footer">
+            WELCOME PROTOCOL ACTIVATED • TRUTH &amp; JUSTICE
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop>
+        <source src="punckrockk.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        const music = document.getElementById('bgMusic');
+        const btn = document.getElementById('welcomeBtn');
+        const container = document.getElementById('messages');
+        const messageEl = document.getElementById('currentMessage');
+        
+        const phrases = [
+            "Welcome to the Daily Planet!",
+            "You are now part of Metropolis' greatest news network!",
+            "Here the truth always wins.",
+            "Feel free to explore the channels and join the conversation.",
+            "Share news, theories, and great moments.",
+            "We're happy to have you on the team!",
+            "Remember: With Great Power Comes Great Responsibility.",
+            "Welcome aboard, new reporter of the Daily Planet!"
+        ];
+        
+        let currentIndex = 0;
+        let intervalId = null;
+        
+        function showNextMessage() {
+            messageEl.classList.remove('show');
+            
+            setTimeout(() => {
+                messageEl.textContent = phrases[currentIndex];
+                messageEl.classList.add('show');
+                currentIndex = (currentIndex + 1) % phrases.length;
+            }, 700);
+        }
+        
+        function startMessages() {
+            container.style.display = 'flex';
+            currentIndex = 0;
+            
+            messageEl.textContent = phrases[0];
+            messageEl.classList.add('show');
+            currentIndex = 1;
+            
+            intervalId = setInterval(showNextMessage, 3600);
+        }
+        
+        btn.addEventListener('click', () => {
+            music.play().catch(() => {});
+            btn.style.display = 'none';
+            startMessages();
+        });
+    </script>
+</body>
+</html>	
+
+		
