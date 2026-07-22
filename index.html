@@ -17,8 +17,8 @@
             background: linear-gradient(180deg, #0a1428, #1a2a4a);
             color: #00ffcc;
             font-family: 'Press Start 2P', system-ui;
-            height: 100vh;
-            overflow: hidden;
+            min-height:100vh;
+            overflow-x:hidden
             display: flex;
             align-items: center;
             justify-content: center;
@@ -99,7 +99,7 @@
         }
 
         .message-container {
-            min-height: 380px;
+            min-height: 320px;
             display: none;
             align-items: center;
             justify-content: center;
@@ -168,94 +168,134 @@
             z-index: -1;
             opacity: 0.65;
         }
-/* ===================== MOBILE - CORRIGIDO ===================== */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 3.1rem;
-            }
-            
-            .subtitle {
-                font-size: 1.35rem;
-                margin-bottom: 45px;
-            }
-            
-            #welcomeBtn {
-                padding: 25px 60px;
-                font-size: 1.85rem;
-            }
-            
-            .message-container {
-                min-height: 340px;
-                margin-bottom: 90px; /* mais espaço pro footer */
-            }
-            
-            .message {
-                font-size: 1.6rem;
-                padding: 40px 35px;
-                max-width: 88%;           /* não ocupa toda a tela */
-                margin: 0 auto;
-                line-height: 1.7;
-            }
-            
-            .container {
-                padding: 30px 25px;
-            }
-            
-            .footer {
-                font-size: 1rem;
-                bottom: 28px;
-                white-space: nowrap;      /* força ficar em linha reta */
-                overflow: hidden;
-                text-overflow: ellipsis;
-                max-width: 95%;
-                z-index: 10;
-            }
-        }
+/* ===================== MOBILE RESPONSIVO ===================== */
 
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 2.7rem;
-            }
-            
-            .subtitle {
-                font-size: 1.2rem;
-            }
-            
-            #welcomeBtn {
-                padding: 22px 52px;
-                font-size: 1.7rem;
-            }
-            
-            .message {
-                font-size: 1.45rem;
-                padding: 35px 30px;
-                max-width: 90%;
-            }
-            
-            .message-container {
-                min-height: 310px;
-                margin-bottom: 80px;
-            }
-        }
+@media (max-width: 768px) {
 
-        @media (max-width: 360px) {
-            .message {
-                max-width: 92%;
-                padding: 32px 25px;
-            }
-        }
+    body{
+        overflow-x:hidden;
+    }
 
-        /* Landscape */
-        @media (max-height: 620px) and (orientation: landscape) {
-            .message-container {
-                min-height: 230px;
-                margin-bottom: 60px;
-            }
-            .footer {
-                bottom: 15px;
-                font-size: 0.9rem;
-            }
-        }
+    .container{
+        width:100%;
+        max-width:100%;
+        padding:25px 18px;
+    }
+
+    h1{
+        font-size:2rem;
+        letter-spacing:2px;
+        line-height:1.15;
+        margin-bottom:10px;
+    }
+
+    .subtitle{
+        font-size:.75rem;
+        letter-spacing:3px;
+        margin-bottom:35px;
+    }
+
+    #welcomeBtn{
+        width:100%;
+        max-width:420px;
+        padding:22px;
+        font-size:1rem;
+        letter-spacing:2px;
+        border-width:4px;
+        margin-bottom:35px;
+    }
+
+    .message-container{
+        min-height:260px;
+        width:100%;
+        margin-bottom:45px;
+    }
+
+    .message{
+        width:100%;
+        max-width:100%;
+        font-size:1rem;
+        line-height:1.9;
+        padding:28px 22px;
+        border-width:4px;
+    }
+
+    .message::before{
+        left:25px;
+        top:-18px;
+        font-size:1.1rem;
+    }
+
+    .footer{
+        position:relative;
+        left:auto;
+        bottom:auto;
+        transform:none;
+        margin-top:20px;
+        font-size:.6rem;
+        line-height:1.6;
+        text-align:center;
+    }
+
+    .neon-border{
+        top:-12px;
+        left:-12px;
+        right:-12px;
+        bottom:-12px;
+    }
+
+}
+
+@media (max-width:480px){
+
+    h1{
+        font-size:1.65rem;
+    }
+
+    .subtitle{
+        font-size:.6rem;
+        letter-spacing:2px;
+    }
+
+    #welcomeBtn{
+        font-size:.8rem;
+        padding:18px;
+    }
+
+    .message{
+        font-size:.8rem;
+        line-height:1.8;
+        padding:24px 18px;
+    }
+
+    .footer{
+        font-size:.5rem;
+    }
+
+}
+
+@media (max-width:360px){
+
+    h1{
+        font-size:1.45rem;
+    }
+
+    .subtitle{
+        font-size:.55rem;
+    }
+
+    #welcomeBtn{
+        font-size:.72rem;
+        padding:16px;
+    }
+
+    .message{
+        font-size:.72rem;
+        padding:20px 15px;
+    }
+
+}
+            
     </style>
 </head>
 <body>
