@@ -53,6 +53,7 @@
             text-align: center;
             z-index: 3;
             position: relative;
+			margin: 25px;
         }
 
         h1 {
@@ -152,23 +153,28 @@
             to { text-shadow: 0 0 25px #00ffcc, 0 0 60px #ffff00, 0 0 85px #ffff00; }
         }
 
-        ..neon-border {
-            position: absolute;
-            inset: 0;
-           border: 3px solid transparent;
-           border-radius: 8px;
-           padding: 25px;
+        .neon-border {
+    position: absolute;
+    top: -25px;
+    left: -25px;
+    right: -25px;
+    bottom: -25px;
 
-          background: linear-gradient(45deg, #00ffcc, #ffff00) border-box;
-         -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+    border: 3px solid transparent;
+    border-radius: 8px;
+
+    background: linear-gradient(45deg, #00ffcc, #ffff00) border-box;
+    -webkit-mask: linear-gradient(#fff 0 0) padding-box,
                   linear-gradient(#fff 0 0);
     -webkit-mask-composite: xor;
     mask-composite: exclude;
 
     animation: neon-border 2.8s linear infinite;
-    pointer-events: none;
     z-index: -1;
     opacity: .65;
+    pointer-events: none;
+
+    box-sizing: border-box;
 		}
 
 @media (max-width: 768px) {
