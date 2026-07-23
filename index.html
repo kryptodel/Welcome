@@ -18,7 +18,7 @@
             color: #00ffcc;
             font-family: 'Press Start 2P', system-ui;
             min-height:100vh;
-            overflow-x:hidden
+            overflow-x:hidden;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -152,23 +152,24 @@
             to { text-shadow: 0 0 25px #00ffcc, 0 0 60px #ffff00, 0 0 85px #ffff00; }
         }
 
-        .neon-border {
+        ..neon-border {
             position: absolute;
-            top: -25px;
-            left: -25px;
-            right: -25px;
-            bottom: -25px;
-            border: 3px solid transparent;
-            background: linear-gradient(45deg, #00ffcc, #ffff00) border-box;
-            -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
-            -webkit-mask-composite: xor;
-            mask-composite: exclude;
-            animation: neon-border 2.8s linear infinite;
-            z-index: -1;
-            opacity: 0.65;
-        }
-/* ===================== MOBILE RESPONSIVO ===================== */
+            inset: 0;
+           border: 3px solid transparent;
+           border-radius: 8px;
+           padding: 25px;
+
+          background: linear-gradient(45deg, #00ffcc, #ffff00) border-box;
+         -webkit-mask: linear-gradient(#fff 0 0) padding-box,
+                  linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+
+    animation: neon-border 2.8s linear infinite;
+    pointer-events: none;
+    z-index: -1;
+    opacity: .65;
+		}
 
 @media (max-width: 768px) {
 
