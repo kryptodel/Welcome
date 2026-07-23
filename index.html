@@ -172,16 +172,26 @@
 
 @media (max-width: 768px) {
 
-    body{
-        overflow-x:hidden;
-    }
+    body {
+    background: linear-gradient(180deg, #0a1428, #1a2a4a);
+    color: #00ffcc;
+    font-family: 'Press Start 2P', system-ui;
+    min-height: 100vh;
 
-    .container{
-        width:100%;
-        max-width:100%;
-        padding:25px 18px;
-    }
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
+    position: relative;
+    image-rendering: pixelated;
+
+    overflow-x: hidden;
+	}
+
+.container{
+    width:100%;
+    max-width:700px;
+}
     h1{
         font-size:2rem;
         letter-spacing:2px;
